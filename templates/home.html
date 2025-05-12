@@ -1,0 +1,337 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Wakahiu Advocate's Legal System</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+  <style>
+      html {
+  scroll-behavior: smooth;
+}
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #f4f6f9;
+    }
+.navbar-toggler {
+  border: 2px solid white;
+  outline: none;
+}
+
+.navbar-toggler-icon {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255, 255, 255, 1%29' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+}
+
+    .navbar-custom {
+      background-color: #0c1b36;
+      padding: 1rem 2rem;
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 1000;
+    }
+
+    .navbar-custom .navbar-brand {
+      font-weight: 600;
+      font-size: 1.5rem;
+      color: white;
+    }
+
+    .navbar-custom .nav-link {
+      color: #ffffff !important;
+      margin-left: 1rem;
+    }
+
+    .navbar-custom .nav-link:hover {
+      color: #00bcd4 !important;
+    }
+
+    .hero-section {
+      background: url('https://images.unsplash.com/photo-1573497491208-6b1acb260507') center/cover no-repeat;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      color: white;
+      text-align: center;
+      text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.7);
+      margin-top: 70px;
+      padding: 1rem;
+    }
+
+    .hero-section h1 {
+      font-size: 3rem;
+      font-weight: 700;
+    }
+
+    .hero-section p {
+      font-size: 1.2rem;
+    }
+
+    .typewriter {
+      display: inline-block;
+      overflow: hidden;
+      white-space: nowrap;
+      border-right: 2px solid white;
+      color: inherit;
+      animation: typing 9s steps(13) 6s infinite alternate,
+                 deleting 4s steps(13) 4s infinite alternate;
+    }
+
+    @keyframes typing {
+      from { width: 0; }
+      to { width: 13ch; }
+    }
+
+    @keyframes deleting {
+      from { width: 13ch; }
+      to { width: 0; }
+    }
+
+    .info-card, .expertise-card {
+      border-radius: 1rem;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      height: 100%;
+    }
+
+    .info-card:hover, .expertise-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 0.75rem 1.5rem rgba(0, 0, 0, 0.1);
+    }
+
+    .footer {
+      background-color: #0c1b36;
+      color: white;
+      padding: 2rem 0;
+    }
+
+    @media (max-width: 768px) {
+      .hero-section h1 {
+        font-size: 2rem;
+      }
+      .hero-section p {
+        font-size: 1rem;
+      }
+    }
+
+    @media (min-width: 1400px) {
+      .container {
+        max-width: 1320px;
+      }
+    }.image-section {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.image-section img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+
+  </style>
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-custom">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">Wakahiu Advocates</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item"><a class="nav-link" href="#logo">Logo</a></li>
+        <li class="nav-item"><a class="nav-link" href="#exp">Our Expertise</a></li>
+        <li class="nav-item"><a class="nav-link" href="#news">News</a></li>
+        <li class="nav-item"><a class="nav-link" href="{% url 'legal_scale_fee_calculator' %}">Calculate Fee</a></li>
+        <li class="nav-item"><a class="nav-link" href="{% url 'book_appointment' %}">Appointments</a></li>
+        <li class="nav-item"><a class="nav-link">Logged In as : {{request.user.username}}</a></li>
+        <li class="nav-item"><a class="btn btn-outline-light btn-sm" href="{% url 'login' %}">Logout</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<section class="hero-section">
+  <h1 data-aos="fade-down">Advocate's Legal System</h1>
+  <p data-aos="fade-up" class="lead">Empowering Advocates with Modern Legal Tools</p>
+  <h2><strong>Contact us: </strong></h2>
+  <h1 class="lead"><span class="typewriter">+254798454858</span></h1>
+</section>
+
+<div id="logo" class="image-section text-center my-4">
+     <h2 class="section-title fw-bold mb-4">Our logo</h2>
+    <img src="{% static 'img.png' %}" style="height:400px" alt="Main Image">
+</div>
+
+<section class="container text-center my-5">
+    <h2 class="section-title fw-bold mb-4">Why Choose Us</h2>
+    <div class="row g-4">
+        <div class="col-md-4">
+            <div class="info-card p-4 bg-white shadow" data-aos="zoom-in">
+                <i class="bi bi-tools fs-1 text-primary"></i>
+                <h4 class="mt-3">Comprehensive Legal Tools</h4>
+                <p>Tools to calculate legal fees, manage documents and streamline your legal practice.</p>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="info-card p-4 bg-white shadow" data-aos="zoom-in" data-aos-delay="100">
+                <i class="bi bi-shield-lock fs-1 text-success"></i>
+                <h4 class="mt-3">Secure Document Management</h4>
+                <p>Store and manage legal documents securely. Your privacy is our top priority.</p>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="info-card p-4 bg-white shadow" data-aos="zoom-in" data-aos-delay="200">
+                <i class="bi bi-people fs-1 text-warning"></i>
+                <h4 class="mt-3">Client Transparency</h4>
+                <p>Maintain transparency through clear billing and progress tracking.</p>
+            </div>
+        </div>
+    </div>
+</section>
+<section id="exp" class="bg-light py-5">
+    <div class="container">
+        <h3 class="text-center mb-5 fw-bold text-primary">Areas of Expertise</h3>
+        <div class="row g-4">
+            <div class="col-md-4">
+                <div class="card expertise-card border-0 shadow-sm" data-aos="fade-up">
+                    <div class="card-body text-center">
+                        <i class="bi bi-calculator fs-1 text-primary"></i>
+                        <h5 class="fw-semibold">Legal Fee Computation</h5>
+                        <p>Automated calculations for legal fees per the Advocates Order.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card expertise-card border-0 shadow-sm" data-aos="fade-up" data-aos-delay="100">
+                    <div class="card-body text-center">
+                        <i class="bi bi-house-door-fill fs-1 text-success"></i>
+                        <h5 class="fw-semibold">Real Estate Transactions</h5>
+                        <p>Property sales, charges, leases, and mortgage processing.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card expertise-card border-0 shadow-sm" data-aos="fade-up" data-aos-delay="200">
+                    <div class="card-body text-center">
+                        <i class="bi bi-cash-coin fs-1 text-warning"></i>
+                        <h5 class="fw-semibold">Financial Securities</h5>
+                        <p>Debentures, mortgages, and related securities management.</p>
+                    </div>
+                </div>
+            </div>
+            <!-- New Expertise: Litigation Support -->
+            <div class="col-md-4">
+                <div class="card expertise-card border-0 shadow-sm" data-aos="fade-up">
+                    <div class="card-body text-center">
+                        <i class="bi bi-journal-text fs-1 text-danger"></i>
+                        <h5 class="fw-semibold">Litigation Support</h5>
+                        <p>Assistance with court pleadings, case preparation, and legal research.</p>
+                    </div>
+                </div>
+            </div>
+            <!-- New Expertise: Family and Succession Law -->
+            <div class="col-md-4">
+                <div class="card expertise-card border-0 shadow-sm" data-aos="fade-up" data-aos-delay="100">
+                    <div class="card-body text-center">
+                        <i class="bi bi-people-fill fs-1 text-info"></i>
+                        <h5 class="fw-semibold">Family & Succession Law</h5>
+                        <p>Guidance on wills, probate, divorce, custody and inheritance matters.</p>
+                    </div>
+                </div>
+            </div>
+            <!-- New Expertise: Corporate and Commercial Law -->
+            <div class="col-md-4">
+                <div class="card expertise-card border-0 shadow-sm" data-aos="fade-up" data-aos-delay="200">
+                    <div class="card-body text-center">
+                        <i class="bi bi-briefcase-fill fs-1 text-primary"></i>
+                        <h5 class="fw-semibold">Corporate & Commercial Law</h5>
+                        <p>Business formation, contract drafting, compliance and governance.</p>
+                    </div>
+                </div>
+            </div>
+            <!-- New Expertise: Intellectual Property -->
+            <div class="col-md-4 offset-md-4">
+                <div class="card expertise-card border-0 shadow-sm" data-aos="fade-up" data-aos-delay="300">
+                    <div class="card-body text-center">
+                        <i class="bi bi-lightbulb-fill fs-1 text-warning"></i>
+                        <h5 class="fw-semibold">Intellectual Property</h5>
+                        <p>Trademark registration, copyright, patents, and IP enforcement.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+
+
+<section id="news" class="container py-5">
+    <h3 class="text-center mb-4 fw-bold text-primary">Latest News</h3>
+    <div class="row g-4">
+        <div class="col-md-6" data-aos="fade-up">
+            <div class="card shadow-sm">
+                <div class="card-body">
+                    <h5 class="card-title">Understanding Land Sale Agreements in Kenya</h5>
+                    <p class="card-text">A recent advisory by Wakahiu Advocates emphasizes the importance of having a properly drafted sale agreement when buying or selling land. Clients are encouraged to consult qualified legal experts to verify land titles and ensure compliance with the Land Control Act.</p>
+                    <a href="#" class="btn btn-outline-primary btn-sm">Read More</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6" data-aos="fade-up" data-aos-delay="100">
+            <div class="card shadow-sm">
+                <div class="card-body">
+                    <h5 class="card-title">How to Avoid Land Fraud in Kenya</h5>
+                    <p class="card-text">Clients often fall victim to land scams due to inadequate legal due diligence. Our firm offers comprehensive verification services including land registry searches, ownership confirmation, and caveat registration to protect buyers.</p>
+                    <a href="#" class="btn btn-outline-primary btn-sm">Read More</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6" data-aos="fade-up" data-aos-delay="200">
+            <div class="card shadow-sm">
+                <div class="card-body">
+                    <h5 class="card-title">Legal Fees in Conveyancing Explained</h5>
+                    <p class="card-text">Clients often ask about fees in property transactions. Wakahiu Advocates educates clients using our Legal Fee Calculator which follows the Advocates (Remuneration) Order to ensure full transparency in legal charges.</p>
+                    <a href="#" class="btn btn-outline-primary btn-sm">Read More</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6" data-aos="fade-up" data-aos-delay="300">
+            <div class="card shadow-sm">
+                <div class="card-body">
+                    <h5 class="card-title">Why You Need a Lawyer in Property Transactions</h5>
+                    <p class="card-text">From drafting sale agreements to facilitating land transfers, advocates play a key role in protecting client interests. Learn how our lawyers have helped clients resolve boundary disputes and avoid fraudulent deals.</p>
+                    <a href="#" class="btn btn-outline-primary btn-sm">Read More</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<footer class="footer text-center">
+    <div class="container">
+        <p class="mb-1">&copy; 2025 Wakahiu Advocate's Legal System. All rights reserved.</p>
+        <div>
+            <i class="bi bi-facebook mx-2"></i>
+            <i class="bi bi-linkedin mx-2"></i>
+            <i class="bi bi-twitter mx-2"></i>
+        </div>
+    </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>AOS.init();</script>
+</body>
+</html>
